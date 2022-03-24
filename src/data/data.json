@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "name": "Adidas Prophere",
+      "alias": "adidas-prophere",
+      "price": 350,
+      "description": "The adidas Primeknit upper wraps the foot with a supportive fit that enhances movement.\r\n\r\n",
+      "shortDescription": "The midsole contains 20% more Boost for an amplified Boost feeling.\r\n\r\n",
+      "quantity": 995,
+      "image": "http://svcy3.myclass.vn/images/adidas-prophere.png"
+    },
+    {
+      "id": 2,
+      "name": "Adidas Prophere White",
+      "alias": "adidas-prophere-black-white",
+      "price": 450,
+      "description": "The adidas Primeknit upper wraps the foot with a supportive fit that enhances movement.\r\n\r\n",
+      "shortDescription": "The midsole contains 20% more Boost for an amplified Boost feeling.\r\n\r\n",
+      "quantity": 990,
+      "image": "http://svcy3.myclass.vn/images/adidas-prophere-black-white.png"
+    },
+    {
+      "id": 3,
+      "name": "Adidas Prophere Customize",
+      "alias": "adidas-prophere-customize",
+      "price": 375,
+      "description": "The adidas Primeknit upper wraps the foot with a supportive fit that enhances movement.\r\n\r\n",
+      "shortDescription": "The midsole contains 20% more Boost for an amplified Boost feeling.\r\n\r\n",
+      "quantity": 415,
+      "image": "http://svcy3.myclass.vn/images/adidas-prophere-customize.png"
+    }
+]
