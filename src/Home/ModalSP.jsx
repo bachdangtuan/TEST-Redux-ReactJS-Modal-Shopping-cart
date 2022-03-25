@@ -9,8 +9,18 @@ class ModalSP extends Component {
             <td><img src={sp.image} alt="" width={50} /></td>
             <td>{sp.price}</td>
             <td>{sp.description}</td>
-            <td>{sp.soluong}</td>
+            <td>
+                <button onClick={()=>{
+                    this.props.tangGiamSoLuong(sp.id,true)
+                }}> + </button>
+                {sp.soluong}
+                <button onClick={()=>{
+                    this.props.tangGiamSoLuong(sp.id,false)
+                }}> - </button>
+                
+                </td>
             <td>{sp.price * sp.soluong}</td>
+            <td><button className='btn btn-danger' onClick={()=> this.props.xoasanpham(sp.id)}>Xóa</button></td>
         </tr>
 
         })
@@ -43,6 +53,21 @@ class ModalSP extends Component {
                                <tbody>
                                 {this.renderGioHang()}
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colSpan={4}></td>
+                                        <td>
+                                            <span>Tổng Tiền</span>
+                                        </td>
+                                        <td> {
+                                            this.props.gioHang.reduce((tongTien,spGioHang,index)=>{
+                                                return (tongTien += spGioHang.price * spGioHang.soluong).toLocaleString()
+                                            },0)
+                                            
+                                            }
+                                        </td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
