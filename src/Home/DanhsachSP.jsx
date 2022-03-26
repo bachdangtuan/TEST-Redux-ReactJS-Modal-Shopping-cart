@@ -50,7 +50,6 @@ export default class DanhsachSP extends Component {
             gioHang: gioHangUpdate
         })
     }
-<<<<<<< HEAD
 
     //Xóa Sản Phẩm khỏi giỏ hàng
     xoasanpham = (idSP)=>{
@@ -82,7 +81,6 @@ export default class DanhsachSP extends Component {
      })
     }
     
-=======
     //Đặt sự kiện xóa giỏ hàng tại 
     xoasanpham = (maSP) => {
         //Tìm trong giỏ hàng có sp chứa maSP được click thì xóa nó đi
