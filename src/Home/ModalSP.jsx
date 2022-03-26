@@ -2,16 +2,28 @@ import React, { Component } from 'react';
 
 class ModalSP extends Component {
     renderGioHang = () => {
-        let  {gioHang}  = this.props
-        return gioHang.map((sp,index)=>{
-        return <tr key={index}>
-            <td scope="row">{sp.name}</td>
-            <td><img src={sp.image} alt="" width={50} /></td>
-            <td>{sp.price}</td>
-            <td>{sp.description}</td>
-            <td>{sp.soluong}</td>
-            <td>{sp.price * sp.soluong}</td>
-        </tr>
+        let { gioHang } = this.props
+        return gioHang.map((sp, index) => {
+            return <tr key={index}>
+                <td scope="row">{sp.name}</td>
+                <td><img src={sp.image} alt="" width={50} /></td>
+                <td>{sp.price}</td>
+                <td>{sp.description}</td>
+                <td>
+                    <button onClick={() => {
+                        this.props.tanggiamsoluon(sp.id, true)
+                    }}> + </button>
+                    {sp.soluong}
+                    <button onClick={() => {
+                        this.props.tanggiamsoluon(sp.id, false)
+                    }}> - </button>
+
+                </td>
+                <td>{sp.price * sp.soluong}</td>
+                <td>
+                    <button className='btn btn-primary' onClick={() => { this.props.xoasanpham(sp.id) }}>Delete</button>
+                </td>
+            </tr>
 
         })
 
@@ -40,9 +52,19 @@ class ModalSP extends Component {
                                         <th>Total Price</th>
                                     </tr>
                                 </thead>
-                               <tbody>
-                                {this.renderGioHang()}
+                                <tbody>
+                                    {this.renderGioHang()}
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colSpan='4'></td>
+                                        <td>Tổng Tiền</td>
+                                        <td>
+                                            {this.props.tongtien}
+                                        </td>
+
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
