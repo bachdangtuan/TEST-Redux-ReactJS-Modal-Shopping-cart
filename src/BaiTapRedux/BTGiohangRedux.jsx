@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class BTGiohangRedux extends Component {
   render() {
     let arrSP = this.props.gioHang
-    console.log(arrSP);
+    // console.log(arrSP);
     let tongsoluong = arrSP.reduce((tsl,spGH,index)=>{
       return tsl += spGH.soluong;
     },0)

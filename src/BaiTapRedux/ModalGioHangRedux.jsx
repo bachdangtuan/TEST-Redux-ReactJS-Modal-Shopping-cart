@@ -14,17 +14,17 @@ class ModalGioHangRedux extends Component {
         <td>{sp.description}</td>
         <td>
           <button onClick={() => {
-        
+            this.props.tanggiamsoluong(index, true)
           }}> + </button>
           {sp.soluong}
           <button onClick={() => {
-        
+            this.props.tanggiamsoluong(index, false)
           }}> - </button>
 
         </td>
         <td>{sp.price * sp.soluong}</td>
         <td>
-          <button className='btn btn-primary'>Delete</button>
+          <button className='btn btn-primary' onClick={() => { this.props.xoasanphamIndex(index) }}>Delete</button>
         </td>
       </tr>
     })
@@ -56,6 +56,18 @@ class ModalGioHangRedux extends Component {
                 <tbody>
                   {this.renderSPModal()}
                 </tbody>
+                <tfoot>
+                  <tr>
+                    <td colSpan='4'></td>
+                    <td>Tổng Tiền</td>
+                    <td>
+                      {this.props.gioHang.reduce((tongtien,SPGH,index)=>{
+                        return tongtien += SPGH.soluong * SPGH.price;
+                      },0)}
+                    </td>
+
+                  </tr>
+                </tfoot>
               </table>
             </div>
           </div>
@@ -71,6 +83,26 @@ const mapStateToProps = (state) => {
     gioHang: state.GioHangReducer.gioHang
   }
 }
-export default connect(mapStateToProps, null)(ModalGioHangRedux)
-
+// Tạo nút xử lý tại component nào thì sử dụng mapdispatchtoprops
+const mapDispatchToProps = (dispatch) => {
+  return {
+    xoasanphamIndex: (index) => {
+      const action = {
+        type: 'XOA_GIO_HANG',
+        index // Giá trị gửi lên
+      }
+      //Dua Action len reducer
+      dispatch(action)
+    },
+    tanggiamsoluong: (index, tanggiam) => {
+      const action = {
+        type: 'TANG_GIAM_SO_LUONG',
+        index,
+        tanggiam// Giá trị gửi lên
+      }
+      dispatch(action)
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ModalGioHangRedux)
 
